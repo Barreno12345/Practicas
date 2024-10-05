@@ -7,7 +7,22 @@ class Post(models.Model):
     descripcion = models.TextField()
     author = models.ForeignKey("auth.User", 
         on_delete = models.CASCADE),
-
+    
+    class Meta:
+        verbose_name_plural = "publicaciones"
 
     def __str__(self):
         return self.titulo
+    
+class Personas (models.Model):
+
+    imagen=models.ImageField(upload_to="photos")
+    model=models.CharField(max_length=50)
+    descripcion=models.CharField(max_length=200)
+
+    class Meta:
+        verbose_name_plural="Personal"
+
+    def __str__(self):
+       return self.nombre 
+    
